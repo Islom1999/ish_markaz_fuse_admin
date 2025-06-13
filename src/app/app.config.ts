@@ -12,6 +12,8 @@ import { provideAuth } from 'app/core/auth/auth.provider';
 import { provideIcons } from 'app/core/icons/icons.provider';
 import { mockApiServices } from 'app/mock-api';
 import { TranslocoHttpLoader } from './core/transloco/transloco.http-loader';
+import { DITokens } from './core/utils/di-tokens';
+import { environment } from 'environments/environment.development';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -21,6 +23,10 @@ export const appConfig: ApplicationConfig = {
             withPreloading(PreloadAllModules),
             withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
         ),
+        {
+            provide: DITokens.API_BASE_URL,
+            useValue: environment.endpoint,
+        },
 
         // Material Date Adapter
         {
