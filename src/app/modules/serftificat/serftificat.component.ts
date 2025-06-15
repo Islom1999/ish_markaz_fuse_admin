@@ -38,7 +38,7 @@ export class SerftificatComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
       this.fileUrl = `${this.baseService.apiBaseUrl}/file-list/watch/${this.id}`;
-      this.baseService.get(`file-list/${this.id}`).subscribe((response: IFileList) => { this.file = response })
+      // this.baseService.get(`file-list/${this.id}`).subscribe((response: IFileList) => { this.file = response })
     }
 
   }
