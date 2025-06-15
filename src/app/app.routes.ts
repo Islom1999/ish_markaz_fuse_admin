@@ -71,6 +71,7 @@ export const appRoutes: Route[] = [
         },
         children: [
             { path: 'example', loadChildren: () => import('app/modules/admin/example/example.routes') },
+            { path: 'admin-permission', loadChildren: () => import('app/modules/admin/admin-permission/admin-permission.routes') },
         ]
     }
 ];

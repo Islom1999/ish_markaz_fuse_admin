@@ -50,7 +50,7 @@ export class AuthService {
             return throwError('User is already logged in.');
         }
 
-        return this._baseService.post('auth/signin/local', credentials).pipe(
+        return this._baseService.post('admin/auth/signin/local', credentials).pipe(
             switchMap((response: { access_token: string, refresh_token: string, user }) => {
                 // Store the access token in the local storage
                 this.accessToken = response.access_token;
@@ -73,31 +73,15 @@ export class AuthService {
      */
     signInUsingToken(): Observable<any> {
         // Sign in using the token
-        return this._httpService.post('api/auth/sign-in-with-token', {
-            accessToken: this.accessToken,
-        }).pipe(
+        return this._baseService.get('admin/auth/profile').pipe(
             catchError(() =>
-
                 // Return false
                 of(false),
             ),
             switchMap((response: any) => {
-                // Replace the access token with the new one if it's available on
-                // the response object.
-                //
-                // This is an added optional step for better security. Once you sign
-                // in using the token, you should generate a new one on the server
-                // side and attach it to the response object. Then the following
-                // piece of code can replace the token with the refreshed one.
-                if (response.accessToken) {
-                    this.accessToken = response.accessToken;
-                }
-
-                // Set the authenticated flag to true
                 this._authenticated = true;
-
                 // Store the user on the user service
-                this._userService.user = response.user;
+                this._userService.user = response;
 
                 // Return true
                 return of(true);
@@ -111,6 +95,7 @@ export class AuthService {
     signOut(): Observable<any> {
         // Remove the access token from the local storage
         localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
 
         // Set the authenticated flag to false
         this._authenticated = false;
