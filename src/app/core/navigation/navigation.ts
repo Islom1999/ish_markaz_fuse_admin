@@ -15,5 +15,12 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type: 'basic',
         icon: 'heroicons_outline:adjustments-vertical',
         link: '/admin-permission'
+    },
+    {
+        id: 'serftificat/:id',
+        title: 'Serftificat',
+        type: 'basic',
+        link: '/serftificat/:id',
+        hidden: () => true
     }
 ];

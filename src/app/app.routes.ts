@@ -3,6 +3,7 @@ import { initialDataResolver } from 'app/app.resolvers';
 import { AuthGuard } from 'app/core/auth/guards/auth.guard';
 import { NoAuthGuard } from 'app/core/auth/guards/noAuth.guard';
 import { LayoutComponent } from 'app/layout/layout.component';
+import { SerftificatComponent } from './modules/serftificat/serftificat.component';
 
 // @formatter:off
 /* eslint-disable max-len */
@@ -18,6 +19,11 @@ export const appRoutes: Route[] = [
     // path. Below is another redirection for that path to redirect the user to the desired
     // location. This is a small convenience to keep all main routes together here on this file.
     { path: 'signed-in-redirect', pathMatch: 'full', redirectTo: 'example' },
+
+    {
+        path: 'serftificat/:id',
+        component: SerftificatComponent
+    },
 
     // Auth routes for guests
     {

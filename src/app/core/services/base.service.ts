@@ -8,7 +8,7 @@ import { DITokens } from '../utils/di-tokens';
 export class BaseService {
   constructor(
     private http: HttpClient,
-    @Inject(DITokens.API_BASE_URL) private apiBaseUrl: string,
+    @Inject(DITokens.API_BASE_URL) public apiBaseUrl: string,
   ) { }
 
   get<T>(

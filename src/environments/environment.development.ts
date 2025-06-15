@@ -1,3 +1,3 @@
 export const environment = {
-    endpoint: 'https://api.ishmarkaz.uz/api'
+    endpoint: 'https://api.kasb-tanla.uz/api'
 };
