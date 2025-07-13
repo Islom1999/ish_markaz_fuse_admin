@@ -3,14 +3,14 @@ import { inject, Injectable } from '@angular/core';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
 import { catchError, Observable, of, switchMap, throwError } from 'rxjs';
-import { BaseService } from '../services/base.service';
+import { BaseApiService } from '../services/base.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
     private _authenticated: boolean = false;
     private _httpService = inject(HttpClient);
     private _userService = inject(UserService);
-    private _baseService = inject(BaseService);
+    private _baseService = inject(BaseApiService);
 
     // -----------------------------------------------------------------------------------------------------
     // @ Accessors
@@ -50,22 +50,30 @@ export class AuthService {
             return throwError('User is already logged in.');
         }
 
-        return this._baseService.post('admin/auth/signin/local', credentials).pipe(
-            switchMap((response: { access_token: string, refresh_token: string, user }) => {
-                // Store the access token in the local storage
-                this.accessToken = response.access_token;
-                this.refreshToken = response.refresh_token;
+        return this._baseService
+            .post('admin/auth/signin/local', credentials)
+            .pipe(
+                switchMap(
+                    (response: {
+                        access_token: string;
+                        refresh_token: string;
+                        user;
+                    }) => {
+                        // Store the access token in the local storage
+                        this.accessToken = response.access_token;
+                        this.refreshToken = response.refresh_token;
 
-                // Set the authenticated flag to true
-                this._authenticated = true;
+                        // Set the authenticated flag to true
+                        this._authenticated = true;
 
-                // Store the user on the user service
-                this._userService.user = response.user;
+                        // Store the user on the user service
+                        this._userService.user = response.user;
 
-                // Return a new observable with the response
-                return of(response);
-            }),
-        );
+                        // Return a new observable with the response
+                        return of(response);
+                    }
+                )
+            );
     }
 
     /**
@@ -76,7 +84,7 @@ export class AuthService {
         return this._baseService.get('admin/auth/profile').pipe(
             catchError(() =>
                 // Return false
-                of(false),
+                of(false)
             ),
             switchMap((response: any) => {
                 this._authenticated = true;
@@ -85,7 +93,7 @@ export class AuthService {
 
                 // Return true
                 return of(true);
-            }),
+            })
         );
     }
 
@@ -109,7 +117,10 @@ export class AuthService {
      *
      * @param credentials
      */
-    unlockSession(credentials: { email: string; password: string }): Observable<any> {
+    unlockSession(credentials: {
+        email: string;
+        password: string;
+    }): Observable<any> {
         return this._baseService.post('api/auth/unlock-session', credentials);
     }
 
