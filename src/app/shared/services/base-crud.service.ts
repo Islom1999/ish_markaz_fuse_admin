@@ -7,11 +7,11 @@ import { Observable } from 'rxjs'
   providedIn: 'root',
 })
 export abstract class BaseCrudService<T> {
-  private baseApi = inject(BaseApiService)
+  public baseApi = inject(BaseApiService)
 
   constructor(
     // protected baseApi: BaseApiService,
-    private endpoint: string, // <-- dinamik endpoint
+    public endpoint: string, // <-- dinamik endpoint
   ) {}
 
   getAll(): Observable<T[]> {

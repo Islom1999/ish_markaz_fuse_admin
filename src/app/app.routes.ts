@@ -99,6 +99,10 @@ export const appRoutes: Route[] = [
         path: 'sp-sub-category',
         loadChildren: () => import('app/modules/admin/sp-sub-category/sp-sub-category.routes'),
       },
+      {
+        path: 'client-resume',
+        loadChildren: () => import('app/modules/admin/client-resume/client-resume.routes'),
+      },
     ],
   },
 ]

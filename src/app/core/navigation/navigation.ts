@@ -45,10 +45,10 @@ export const defaultNavigation: FuseNavigationItem[] = [
     link: '/sp-sub-category',
   },
   {
-    id: 'serftificat/:id',
-    title: 'Serftificat',
+    id: 'client-resume',
+    title: 'Resume',
     type: 'basic',
-    link: '/serftificat/:id',
-    hidden: () => true,
+    icon: 'heroicons_outline:adjustments-vertical',
+    link: '/client-resume',
   },
 ]
