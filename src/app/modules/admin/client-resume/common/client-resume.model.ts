@@ -11,6 +11,7 @@ export interface IClientResumeToCategory extends IBaseModel {
 
 export interface IClientResume extends IBaseModel {
   bigint_id?: string
+  resume_status: ResumeStatus
   description?: string
   experience_text: string
   price_text?: string
@@ -25,4 +26,20 @@ export interface IClientResume extends IBaseModel {
   // client_user?: IClientUser;
 
   client_resume_to_category?: IClientResumeToCategory[]
+}
+
+export enum ResumeStatus {
+  draft = 'draft',
+  new = 'new',
+  posted = 'posted',
+  actived = 'actived',
+  updated = 'updated',
+}
+
+export const ResumeStatusText = {
+  [ResumeStatus.draft]: 'Qoralama',
+  [ResumeStatus.new]: 'Yangi',
+  [ResumeStatus.posted]: 'Chop etildi',
+  [ResumeStatus.actived]: 'Faol',
+  [ResumeStatus.updated]: 'Yangilandi',
 }

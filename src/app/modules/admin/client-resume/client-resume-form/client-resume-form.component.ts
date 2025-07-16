@@ -14,7 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectChange, MatSelectModule } from '@angular/material/select'
 import { SpRegionService } from '../../sp-region/common/sp-region.service'
-import { IClientResume } from '../common/client-resume.model'
+import { IClientResume, ResumeStatus, ResumeStatusText } from '../common/client-resume.model'
 import { ClientResumeService } from '../common/client-resume.service'
 import { SpDistrictService } from '../../sp-district/common/sp-district.service'
 import { ISpSubCategory } from '../../sp-sub-category/common/sp-sub-category.model'
@@ -58,6 +58,8 @@ export class ClientResumeFormComponent {
     initialValue: [],
   })
   subCategoriesFilter: ISpSubCategory[] = []
+  posterStatus = Object.values(ResumeStatus)
+  resumeStatusText = ResumeStatusText
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: { clientResume?: IClientResume }) {
     if (this.subCategories().length > 0) {
@@ -109,6 +111,7 @@ export class ClientResumeFormComponent {
     region_id: ['', Validators.required],
     district_id: ['', Validators.required],
     category_id: ['', Validators.required],
+    resume_status: [''],
     username: [''],
     description: [''],
     client_resume_to_category: this.fb.array([], Validators.required),
@@ -141,6 +144,7 @@ export class ClientResumeFormComponent {
   submit() {
     if (this.form.valid) {
       const {
+        resume_status,
         experience_text,
         price_text,
         phone,
@@ -153,6 +157,7 @@ export class ClientResumeFormComponent {
         description,
       } = this.form.value
       const bodyData = {
+        resume_status,
         experience_text,
         price_text,
         phone,

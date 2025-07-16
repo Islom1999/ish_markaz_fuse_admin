@@ -30,6 +30,32 @@
   </div>
 
   <div class="flex gap-2">
+    <!-- Kategoriya tanlash -->
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Kategoriya</mat-label>
+      <mat-select formControlName="category_id" (selectionChange)="onCategoryChange($event.value)">
+        @for (cat of categories(); track $index) {
+          <mat-option [value]="cat.id">{{ cat.name_uz }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Subkategoriya ko‘p tanlanadigan select -->
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Subkategoriyalar</mat-label>
+      <mat-select
+        multiple
+        (selectionChange)="onSubCategorySelect($event)"
+        [value]="getSelectedSubCategoryIds()"
+      >
+        @for (sub of subCategories(); track sub.id) {
+          <mat-option [value]="sub.id">{{ sub.name_uz }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="flex gap-2">
     <div class="item">
       <mat-form-field appearance="outline" class="w-100">
         <mat-label>To‘liq ism</mat-label>
@@ -61,37 +87,26 @@
   </div>
 
   <div class="flex gap-2">
-    <!-- Kategoriya tanlash -->
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Kategoriya</mat-label>
-      <mat-select formControlName="category_id" (selectionChange)="onCategoryChange($event.value)">
-        @for (cat of categories(); track $index) {
-          <mat-option [value]="cat.id">{{ cat.name_uz }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-
-    <!-- Subkategoriya ko‘p tanlanadigan select -->
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Subkategoriyalar</mat-label>
-      <mat-select
-        multiple
-        (selectionChange)="onSubCategorySelect($event)"
-        [value]="getSelectedSubCategoryIds()"
-      >
-        @for (sub of subCategories(); track sub.id) {
-          <mat-option [value]="sub.id">{{ sub.name_uz }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
+    <div class="item">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Foydalanuvchi nomi</mat-label>
+        <input matInput formControlName="username" />
+      </mat-form-field>
+    </div>
+    <div class="item">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Status</mat-label>
+        <mat-select
+          formControlName="resume_status"
+          (selectionChange)="onCategoryChange($event.value)"
+        >
+          @for (status of posterStatus; track $index) {
+            <mat-option [value]="status">{{ resumeStatusText[status] }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
-
-  <!-- <div class="item">
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Foydalanuvchi nomi</mat-label>
-      <input matInput formControlName="username" />
-    </mat-form-field>
-  </div> -->
 
   <!-- <div class="item">
     <mat-form-field appearance="outline" class="w-100">
