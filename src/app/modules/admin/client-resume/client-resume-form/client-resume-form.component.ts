@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  effect,
   inject,
   Inject,
 } from '@angular/core'
@@ -67,9 +68,35 @@ export class ClientResumeFormComponent {
     if (data?.clientResume) {
       this.form.patchValue({
         ...data.clientResume,
-        client_resume_to_category: data.clientResume.client_resume_to_category.map(
-          (item) => item.sub_category_id,
-        ),
+        region_id: data.clientResume.district.region_id,
+      })
+
+      const array = this.form.get('client_resume_to_category') as FormArray
+      array.clear()
+
+      if (data?.clientResume?.client_resume_to_category?.length) {
+        data.clientResume.client_resume_to_category.forEach((item) => {
+          array.push(
+            this.fb.group({
+              sub_category_id: [item.sub_category_id, Validators.required],
+            }),
+          )
+        })
+      }
+
+      effect(() => {
+        const list = this.subCategories()
+        if (list.length > 0) {
+          this.subCategoriesFilter = [...list]
+          this.cdr.markForCheck()
+        }
+        if (data?.clientResume?.client_resume_to_category?.[0]) {
+          const subCategory = this.subCategories().find(
+            (sc) => sc.id == data?.clientResume?.client_resume_to_category?.[0].sub_category_id,
+          )
+          if (subCategory?.category_id)
+            this.form.get('category_id')?.patchValue(subCategory?.category_id)
+        }
       })
     }
   }
@@ -81,6 +108,7 @@ export class ClientResumeFormComponent {
     fullname: ['', Validators.required],
     region_id: ['', Validators.required],
     district_id: ['', Validators.required],
+    category_id: ['', Validators.required],
     username: [''],
     description: [''],
     client_resume_to_category: this.fb.array([], Validators.required),
@@ -89,7 +117,7 @@ export class ClientResumeFormComponent {
   onCategoryChange(categoryId: string) {
     const category = this.categories().find((c) => c.id == categoryId)
     if (category) {
-      const subCategories = this.subCategories().filter((sc) => sc.category_id === category.id)
+      const subCategories = this.subCategories().filter((sc) => sc?.category_id === category.id)
       this.subCategoriesFilter = [...subCategories]
       this.cdr.markForCheck()
     }
@@ -112,19 +140,38 @@ export class ClientResumeFormComponent {
 
   submit() {
     if (this.form.valid) {
+      const {
+        experience_text,
+        price_text,
+        phone,
+        fullname,
+        district_id,
+        username,
+        client_resume_to_category,
+        region_id,
+        category_id,
+        description,
+      } = this.form.value
+      const bodyData = {
+        experience_text,
+        price_text,
+        phone,
+        fullname,
+        district_id,
+        username,
+        client_resume_to_category,
+      }
       if (this.data.clientResume) {
-        this.$service
-          .update(this.data.clientResume.id, this.form.value as IClientResume)
-          .subscribe({
-            next: () => {
-              this.dialogRef.close(true)
-            },
-            error: (err) => {
-              console.log(err)
-            },
-          })
+        this.$service.update(this.data.clientResume.id, bodyData as IClientResume).subscribe({
+          next: () => {
+            this.dialogRef.close(true)
+          },
+          error: (err) => {
+            console.log(err)
+          },
+        })
       } else {
-        this.$service.create(this.form.value as IClientResume).subscribe({
+        this.$service.create(bodyData as IClientResume).subscribe({
           next: () => {
             this.dialogRef.close(true)
           },

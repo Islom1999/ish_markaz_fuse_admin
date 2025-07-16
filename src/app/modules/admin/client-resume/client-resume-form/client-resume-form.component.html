@@ -79,7 +79,7 @@
         (selectionChange)="onSubCategorySelect($event)"
         [value]="getSelectedSubCategoryIds()"
       >
-        @for (sub of subCategoriesFilter; track sub.id) {
+        @for (sub of subCategories(); track sub.id) {
           <mat-option [value]="sub.id">{{ sub.name_uz }}</mat-option>
         }
       </mat-select>
