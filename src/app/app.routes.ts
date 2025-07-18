@@ -103,6 +103,10 @@ export const appRoutes: Route[] = [
         path: 'client-resume',
         loadChildren: () => import('app/modules/admin/client-resume/client-resume.routes'),
       },
+      {
+        path: 'client-poster',
+        loadChildren: () => import('app/modules/admin/client-poster/client-poster.routes'),
+      },
     ],
   },
 ]
