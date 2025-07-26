@@ -84,6 +84,14 @@ export const appRoutes: Route[] = [
         loadChildren: () => import('app/modules/admin/admin-permission/admin-permission.routes'),
       },
       {
+        path: 'admin-role',
+        loadChildren: () => import('app/modules/admin/admin-role/admin-role.routes'),
+      },
+      {
+        path: 'admin-user',
+        loadChildren: () => import('app/modules/admin/admin-user/admin-user.routes'),
+      },
+      {
         path: 'sp-region',
         loadChildren: () => import('app/modules/admin/sp-region/sp-region.routes'),
       },

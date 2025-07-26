@@ -16,6 +16,28 @@ export const defaultNavigation: FuseNavigationItem[] = [
   //     icon: 'heroicons_outline:adjustments-vertical',
   //     link: '/admin-permission',
   //   },
+
+  {
+    id: 'admin-permission',
+    title: 'Permission',
+    type: 'basic',
+    icon: 'heroicons_outline:adjustments-vertical',
+    link: '/admin-permission',
+  },
+  {
+    id: 'admin-role',
+    title: 'Role',
+    type: 'basic',
+    icon: 'heroicons_outline:adjustments-vertical',
+    link: '/admin-role',
+  },
+  {
+    id: 'admin-user',
+    title: 'Admin',
+    type: 'basic',
+    icon: 'heroicons_outline:adjustments-vertical',
+    link: '/admin-user',
+  },
   {
     id: 'sp-region',
     title: 'Region',

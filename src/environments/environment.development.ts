@@ -1,3 +1,3 @@
 export const environment = {
-    endpoint: 'https://api.ishmarkaz.topsites.uz/api'
-};
+  endpoint: 'http://94.130.33.123:4567/api',
+}
