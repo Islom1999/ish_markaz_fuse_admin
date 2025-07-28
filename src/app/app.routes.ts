@@ -92,6 +92,18 @@ export const appRoutes: Route[] = [
         loadChildren: () => import('app/modules/admin/admin-user/admin-user.routes'),
       },
       {
+        path: 'tg-detail',
+        loadChildren: () => import('app/modules/admin/tg-detail/tg-detail.routes'),
+      },
+      {
+        path: 'translation',
+        loadChildren: () => import('app/modules/admin/translations/translations.routes'),
+      },
+      {
+        path: 'sp-premium-plan',
+        loadChildren: () => import('app/modules/admin/sp-premium-plan/sp-premium-plan.routes'),
+      },
+      {
         path: 'sp-region',
         loadChildren: () => import('app/modules/admin/sp-region/sp-region.routes'),
       },

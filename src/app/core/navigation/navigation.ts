@@ -39,6 +39,27 @@ export const defaultNavigation: FuseNavigationItem[] = [
     link: '/admin-user',
   },
   {
+    id: 'tg-detail',
+    title: 'Tg Detail',
+    type: 'basic',
+    icon: 'heroicons_outline:adjustments-vertical',
+    link: '/tg-detail',
+  },
+  {
+    id: 'translation',
+    title: 'Translation',
+    type: 'basic',
+    icon: 'heroicons_outline:adjustments-vertical',
+    link: '/translation',
+  },
+  {
+    id: 'sp-premium-plan',
+    title: 'Sp Premium Plan',
+    type: 'basic',
+    icon: 'heroicons_outline:adjustments-vertical',
+    link: '/sp-premium-plan',
+  },
+  {
     id: 'sp-region',
     title: 'Region',
     type: 'basic',

@@ -1,37 +1,37 @@
-<h2 mat-dialog-title>{{ data?.AdminUser ? 'Tahrirlash' : "Yangi qo'shish" }}</h2>
+<h2 mat-dialog-title>{{ data?.premiumPlan ? 'Tahrirlash' : "Yangi qo'shish" }}</h2>
 
 <form class="flex flex-col gap-2 mt-4" [formGroup]="form" (ngSubmit)="submit()" mat-dialog-content>
   <div class="item">
     <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Name</mat-label>
-      <input matInput formControlName="name" />
+      <mat-label>Name (Uz)</mat-label>
+      <input matInput formControlName="name_uz" />
     </mat-form-field>
   </div>
 
   <div class="item">
     <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Email</mat-label>
-      <input type="email" matInput formControlName="email" />
+      <mat-label>Name (Kr)</mat-label>
+      <input matInput formControlName="name_kr" />
     </mat-form-field>
   </div>
-
-  <div class="item w-full">
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Role</mat-label>
-      <mat-select formControlName="role_id" required>
-        @for (role of roles(); track role.id) {
-          <mat-option [value]="role.id">
-            {{ role?.name }}
-          </mat-option>
-        }
-      </mat-select>
+  <div class="item">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Name (Ru)</mat-label>
+      <input matInput formControlName="name_ru" />
     </mat-form-field>
   </div>
 
   <div class="item">
     <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Password</mat-label>
-      <input matInput formControlName="password" />
+      <mat-label>Price</mat-label>
+      <input type="number" matInput formControlName="price" />
+    </mat-form-field>
+  </div>
+
+  <div class="item">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Premium Date</mat-label>
+      <input type="number" matInput formControlName="premium_date" />
     </mat-form-field>
   </div>
 
@@ -44,7 +44,7 @@
         <button mat-button type="button" (click)="dialogRef.close()">Bekor qilish</button>
       </div>
       <div class="item">
-        @if (data?.AdminUser) {
+        @if (data?.premiumPlan) {
           <button mat-button type="button" color="warn" (click)="delete()">O'chirish</button>
         }
       </div>

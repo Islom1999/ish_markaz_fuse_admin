@@ -38,7 +38,7 @@ export class AdminUserFormComponent {
     name: ['', Validators.required],
     email: ['', Validators.required],
     is_block: [false, Validators.required],
-    password: ['', Validators.required],
+    password: [null],
     role_id: ['', Validators.required],
   })
 
@@ -46,6 +46,7 @@ export class AdminUserFormComponent {
     if (data?.AdminUser) {
       this.form.patchValue({
         ...data.AdminUser,
+        password: null,
       })
     }
   }
