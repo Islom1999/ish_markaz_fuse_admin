@@ -1,7 +1,12 @@
 <h2 mat-dialog-title>{{ data?.clientResume ? 'Tahrirlash' : "Yangi qo'shish" }}</h2>
 
-<form class="flex flex-col gap-2 mt-4" [formGroup]="form" (ngSubmit)="submit()" mat-dialog-content>
-  <div class="flex gap-2">
+<form
+  class="flex flex-col gap-2 mt-4 overflow-y-auto"
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+  mat-dialog-content
+>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
     <div class="item">
       <mat-form-field appearance="outline" class="w-100">
         <mat-label>Region</mat-label>
@@ -29,7 +34,7 @@
     </div>
   </div>
 
-  <div class="flex gap-2">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
     <!-- Kategoriya tanlash -->
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Kategoriya</mat-label>
@@ -55,7 +60,7 @@
     </mat-form-field>
   </div>
 
-  <div class="flex gap-2">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
     <div class="item">
       <mat-form-field appearance="outline" class="w-100">
         <mat-label>To‘liq ism</mat-label>
@@ -71,7 +76,7 @@
     </div>
   </div>
 
-  <div class="flex gap-2">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
     <div class="item">
       <mat-form-field appearance="outline" class="w-100">
         <mat-label>Oylik (so‘m)</mat-label>
@@ -86,7 +91,7 @@
     </div>
   </div>
 
-  <div class="flex gap-2">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
     <div class="item">
       <mat-form-field appearance="outline" class="w-100">
         <mat-label>Foydalanuvchi nomi</mat-label>

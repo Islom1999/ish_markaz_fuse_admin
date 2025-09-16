@@ -56,6 +56,7 @@ export class ClientResumeComponent {
     this.dialog
       .open(ClientResumeFormComponent, {
         data: {},
+        panelClass: 'custom-dialog-container',
       })
       .afterClosed()
       .subscribe((res) => {
@@ -69,6 +70,7 @@ export class ClientResumeComponent {
     this.dialog
       .open(ClientResumeFormComponent, {
         data: { clientResume: event },
+        panelClass: 'custom-dialog-container',
       })
       .afterClosed()
       .subscribe((res) => {

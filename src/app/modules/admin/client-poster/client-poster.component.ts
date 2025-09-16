@@ -52,10 +52,12 @@ export class ClientPosterComponent {
     },
   ]
 
+  breakpointObserver
   onClickAdd(event: any) {
     this.dialog
       .open(ClientPosterFormComponent, {
         data: {},
+        panelClass: 'custom-dialog-container',
       })
       .afterClosed()
       .subscribe((res) => {
@@ -69,6 +71,7 @@ export class ClientPosterComponent {
     this.dialog
       .open(ClientPosterFormComponent, {
         data: { ClientPoster: event },
+        panelClass: 'custom-dialog-container',
       })
       .afterClosed()
       .subscribe((res) => {
