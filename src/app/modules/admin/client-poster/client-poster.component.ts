@@ -58,6 +58,7 @@ export class ClientPosterComponent {
       .open(ClientPosterFormComponent, {
         data: {},
         panelClass: 'custom-dialog-container',
+        maxHeight: '90vh',
       })
       .afterClosed()
       .subscribe((res) => {
@@ -72,6 +73,7 @@ export class ClientPosterComponent {
       .open(ClientPosterFormComponent, {
         data: { ClientPoster: event },
         panelClass: 'custom-dialog-container',
+        maxHeight: '90vh',
       })
       .afterClosed()
       .subscribe((res) => {

@@ -101,4 +101,11 @@ export const defaultNavigation: FuseNavigationItem[] = [
     icon: 'heroicons_outline:adjustments-vertical',
     link: '/client-poster',
   },
+  {
+    id: 'client-user',
+    title: 'Poster',
+    type: 'basic',
+    icon: 'heroicons_outline:adjustments-vertical',
+    link: '/client-user',
+  },
 ]

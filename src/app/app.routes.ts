@@ -120,6 +120,10 @@ export const appRoutes: Route[] = [
         loadChildren: () => import('app/modules/admin/sp-sub-category/sp-sub-category.routes'),
       },
       {
+        path: 'client-user',
+        loadChildren: () => import('app/modules/admin/client-user/client-user.routes'),
+      },
+      {
         path: 'client-resume',
         loadChildren: () => import('app/modules/admin/client-resume/client-resume.routes'),
       },

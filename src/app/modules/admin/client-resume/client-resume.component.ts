@@ -57,6 +57,7 @@ export class ClientResumeComponent {
       .open(ClientResumeFormComponent, {
         data: {},
         panelClass: 'custom-dialog-container',
+        maxHeight: '90vh',
       })
       .afterClosed()
       .subscribe((res) => {
@@ -71,6 +72,7 @@ export class ClientResumeComponent {
       .open(ClientResumeFormComponent, {
         data: { clientResume: event },
         panelClass: 'custom-dialog-container',
+        maxHeight: '90vh',
       })
       .afterClosed()
       .subscribe((res) => {

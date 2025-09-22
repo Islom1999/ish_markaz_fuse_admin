@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>{{ 'Tahrirlash' }}</h2>
+
+<form class="flex flex-col gap-2 mt-4" [formGroup]="form" (ngSubmit)="submit()" mat-dialog-content>
+  <!-- Role tanlash -->
+  <div class="item">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        @for (item of userRoleList || []; track $index) {
+          <mat-option [value]="item.value">{{ item.label }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Blocklanganlik holati -->
+  <div class="item">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Blocklanganlik holati</mat-label>
+      <mat-select formControlName="is_block">
+        <mat-option [value]="true">{{ 'Bloklangan' }}</mat-option>
+        <mat-option [value]="false">{{ 'Bloklanmagan' }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions>
+    <div class="flex justify-between">
+      <div class="item">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          Saqlash
+        </button>
+        <button mat-button type="button" (click)="dialogRef.close()">Bekor qilish</button>
+      </div>
+      <div class="item"></div>
+    </div>
+  </div>
+</form>

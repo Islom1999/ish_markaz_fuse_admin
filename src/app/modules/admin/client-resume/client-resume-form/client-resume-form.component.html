@@ -8,7 +8,7 @@
 >
   <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
     <div class="item">
-      <mat-form-field appearance="outline" class="w-100">
+      <mat-form-field appearance="outline" class="w-full">
         <mat-label>Region</mat-label>
         <mat-select formControlName="region_id" required>
           @for (region of regions(); track $index) {
@@ -21,7 +21,7 @@
     </div>
 
     <div class="item">
-      <mat-form-field appearance="outline" class="w-100">
+      <mat-form-field appearance="outline" class="w-full">
         <mat-label>District</mat-label>
         <mat-select formControlName="district_id" required>
           @for (district of districts(); track $index) {
@@ -36,7 +36,7 @@
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
     <!-- Kategoriya tanlash -->
-    <mat-form-field appearance="outline" class="w-100">
+    <mat-form-field appearance="outline" class="w-full">
       <mat-label>Kategoriya</mat-label>
       <mat-select formControlName="category_id" (selectionChange)="onCategoryChange($event.value)">
         @for (cat of categories(); track $index) {
@@ -46,7 +46,7 @@
     </mat-form-field>
 
     <!-- Subkategoriya ko‘p tanlanadigan select -->
-    <mat-form-field appearance="outline" class="w-100">
+    <mat-form-field appearance="outline" class="w-full">
       <mat-label>Subkategoriyalar</mat-label>
       <mat-select
         multiple
@@ -62,14 +62,14 @@
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
     <div class="item">
-      <mat-form-field appearance="outline" class="w-100">
+      <mat-form-field appearance="outline" class="w-full">
         <mat-label>To‘liq ism</mat-label>
         <input matInput formControlName="fullname" />
       </mat-form-field>
     </div>
 
     <div class="item">
-      <mat-form-field appearance="outline" class="w-100">
+      <mat-form-field appearance="outline" class="w-full">
         <mat-label>Telefon</mat-label>
         <input matInput formControlName="phone" />
       </mat-form-field>
@@ -78,13 +78,13 @@
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
     <div class="item">
-      <mat-form-field appearance="outline" class="w-100">
+      <mat-form-field appearance="outline" class="w-full">
         <mat-label>Oylik (so‘m)</mat-label>
         <input matInput formControlName="price_text" />
       </mat-form-field>
     </div>
     <div class="item">
-      <mat-form-field appearance="outline" class="w-100">
+      <mat-form-field appearance="outline" class="w-full">
         <mat-label>Tajriba</mat-label>
         <input matInput formControlName="experience_text" required />
       </mat-form-field>
@@ -93,13 +93,13 @@
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
     <div class="item">
-      <mat-form-field appearance="outline" class="w-100">
+      <mat-form-field appearance="outline" class="w-full">
         <mat-label>Foydalanuvchi nomi</mat-label>
         <input matInput formControlName="username" />
       </mat-form-field>
     </div>
     <div class="item">
-      <mat-form-field appearance="outline" class="w-100">
+      <mat-form-field appearance="outline" class="w-full">
         <mat-label>Status</mat-label>
         <mat-select
           formControlName="resume_status"
@@ -114,7 +114,7 @@
   </div>
 
   <!-- <div class="item">
-    <mat-form-field appearance="outline" class="w-100">
+    <mat-form-field appearance="outline" class="w-full">
       <mat-label>Izoh</mat-label>
       <textarea matInput formControlName="description"></textarea>
     </mat-form-field>

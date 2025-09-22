@@ -2,15 +2,16 @@
   display: block;
 }
 
-.custom-dialog-container {
+mat-dialog-container {
   width: 80% !important;
   height: 80% !important;
   max-width: 100vw !important;
   overflow-y: auto;
+  position: relative;
 }
 
 @media (max-width: 768px) {
-  .custom-dialog-container {
+  mat-dialog-container {
     width: 100vw !important;
     height: 100vh !important;
     margin: 0 !important;

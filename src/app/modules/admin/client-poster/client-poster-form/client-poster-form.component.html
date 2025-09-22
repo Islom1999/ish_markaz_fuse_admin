@@ -2,7 +2,7 @@
   <h2 mat-dialog-title>{{ data?.ClientPoster ? 'Tahrirlash' : "Yangi qo'shish" }}</h2>
 
   <form
-    class="flex flex-col gap-2 mt-4 overflow-y-auto"
+    class="flex flex-col w-full gap-2 mt-4 overflow-y-auto"
     [formGroup]="form"
     (ngSubmit)="submit()"
     mat-dialog-content
