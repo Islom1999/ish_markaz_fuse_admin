@@ -75,8 +75,8 @@ export abstract class GridServiceMaterial<T = any> {
     this._fuseProgressBarService.show()
 
     this.getAllData({
-      page: this.pageEvent.pageIndex,
-      limit: 10,
+      page: this.pageEvent.pageIndex + 1,
+      limit: this.pageEvent.pageSize,
       // size: this.pageEvent.pageSize,
       // sort: this.sortActive,
       // order: this.sortDirection,

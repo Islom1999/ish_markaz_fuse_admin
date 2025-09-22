@@ -4,10 +4,11 @@ import { ClientUserGridService, ClientUserService } from './common/client-user.s
 import { MatDialog } from '@angular/material/dialog'
 import { ClientUserStatusFormComponent } from './client-user-status-form/client-user-status-form.component'
 import { IClientUser } from './common/client-user.model'
+import { HasPermissionDirective } from 'app/core/auth/directives/has-role.directive'
 
 @Component({
   selector: 'app-client-user',
-  imports: [MaterialGridComponent],
+  imports: [MaterialGridComponent, HasPermissionDirective],
   templateUrl: './client-user.component.html',
   styleUrl: './client-user.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

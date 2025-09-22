@@ -3,6 +3,7 @@ import { initialDataResolver } from 'app/app.resolvers'
 import { AuthGuard } from 'app/core/auth/guards/auth.guard'
 import { NoAuthGuard } from 'app/core/auth/guards/noAuth.guard'
 import { LayoutComponent } from 'app/layout/layout.component'
+import { PermissionGuard } from './core/auth/guards/permission.guard'
 
 // @formatter:off
 /* eslint-disable max-len */
@@ -82,54 +83,106 @@ export const appRoutes: Route[] = [
       {
         path: 'admin-permission',
         loadChildren: () => import('app/modules/admin/admin-permission/admin-permission.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'admin-role',
         loadChildren: () => import('app/modules/admin/admin-role/admin-role.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'admin-user',
         loadChildren: () => import('app/modules/admin/admin-user/admin-user.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'tg-detail',
         loadChildren: () => import('app/modules/admin/tg-detail/tg-detail.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'translation',
         loadChildren: () => import('app/modules/admin/translations/translations.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'sp-premium-plan',
         loadChildren: () => import('app/modules/admin/sp-premium-plan/sp-premium-plan.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'sp-region',
         loadChildren: () => import('app/modules/admin/sp-region/sp-region.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'sp-district',
         loadChildren: () => import('app/modules/admin/sp-district/sp-district.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'sp-category',
         loadChildren: () => import('app/modules/admin/sp-category/sp-category.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'sp-sub-category',
         loadChildren: () => import('app/modules/admin/sp-sub-category/sp-sub-category.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'client-user',
         loadChildren: () => import('app/modules/admin/client-user/client-user.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'client-resume',
         loadChildren: () => import('app/modules/admin/client-resume/client-resume.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
       {
         path: 'client-poster',
         loadChildren: () => import('app/modules/admin/client-poster/client-poster.routes'),
+        canActivate: [PermissionGuard],
+        data: {
+          permissions: ['super'],
+        },
       },
     ],
   },
