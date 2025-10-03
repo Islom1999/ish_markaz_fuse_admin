@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { BaseCrudService, GridResponse, GridServiceMaterial } from 'app/shared'
+import { BaseCrudService, GridResponse, GridServiceMaterial, GridRequestParams } from 'app/shared'
 import { Observable } from 'rxjs'
 import { IAdminRole } from './admin-role.model'
 
@@ -20,13 +20,9 @@ export class AdminRoleGridService extends GridServiceMaterial<IAdminRole> {
     super()
   }
 
-  getAllData(params: {
-    page: number
-    limit: number
-    sort?: string
-    order?: string
-    filters?: string
-  }): Observable<GridResponse<IAdminRole>> {
+  getAllData(
+    params: GridRequestParams & { filters?: string }
+  ): Observable<GridResponse<IAdminRole>> {
     return this.$api.getAllPagination(params)
   }
 }

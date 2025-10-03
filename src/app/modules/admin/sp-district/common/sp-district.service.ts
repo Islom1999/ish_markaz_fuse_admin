@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { BaseCrudService, GridResponse, GridServiceMaterial } from 'app/shared'
+import { BaseCrudService, GridResponse, GridServiceMaterial, GridRequestParams } from 'app/shared'
 import { Observable } from 'rxjs'
 import { ISpDistrict } from './sp-district.model'
 
@@ -20,13 +20,9 @@ export class SpDistrictGridService extends GridServiceMaterial<ISpDistrict> {
     super()
   }
 
-  getAllData(params: {
-    page: number
-    limit: number
-    sort?: string
-    order?: string
-    filters?: string
-  }): Observable<GridResponse<ISpDistrict>> {
+  getAllData(
+    params: GridRequestParams & { filters?: string }
+  ): Observable<GridResponse<ISpDistrict>> {
     return this.$api.getAllPagination(params)
   }
 }

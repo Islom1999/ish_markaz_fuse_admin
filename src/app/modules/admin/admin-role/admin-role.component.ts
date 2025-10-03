@@ -27,10 +27,12 @@ export class AdminRoleComponent {
     {
       field: 'name',
       header: 'name',
+      is_filter: true,
     },
     {
       field: 'description',
       header: 'description',
+      is_filter: true,
     },
   ]
 

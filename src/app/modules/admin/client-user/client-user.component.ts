@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core'
+﻿import { ChangeDetectionStrategy, Component, inject } from '@angular/core'
 import { GridServiceMaterial, IColumn, MaterialGridComponent } from 'app/shared'
 import { ClientUserGridService, ClientUserService } from './common/client-user.service'
 import { MatDialog } from '@angular/material/dialog'
@@ -30,10 +30,12 @@ export class ClientUserComponent {
     {
       field: 'fullname',
       header: 'Ismi',
+      is_filter: true,
     },
     {
       field: 'phone',
       header: 'Tel raqami',
+      is_filter: true,
     },
     // {
     //   field: 'region.name_uz',
@@ -46,10 +48,13 @@ export class ClientUserComponent {
     {
       field: 'role',
       header: 'User roli',
+      is_filter: true,
     },
     {
       field: 'is_block',
       header: "Qora ro'yhat",
+      is_filter: true,
+      filterType: 'boolean',
     },
   ]
 

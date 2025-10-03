@@ -29,26 +29,32 @@ export class ClientResumeComponent {
     {
       field: 'bigint_id',
       header: 'bigint_id',
+      is_filter: true,
     },
     {
       field: 'fullname',
       header: 'fullname',
+      is_filter: true,
     },
     {
       field: 'username',
       header: 'username',
+      is_filter: true,
     },
     {
       field: 'phone',
       header: 'phone',
+      is_filter: true,
     },
     {
       field: 'experience_text',
       header: 'experience_text',
+      is_filter: true,
     },
     {
       field: 'price_text',
       header: 'price_text',
+      is_filter: true,
     },
   ]
 

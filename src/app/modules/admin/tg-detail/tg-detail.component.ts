@@ -27,30 +27,37 @@ export class TgDetailComponent {
     {
       field: 'name',
       header: 'name',
+      is_filter: true,
     },
     {
       field: 'username',
       header: 'username',
+      is_filter: true,
     },
     {
       field: 'tg_type',
       header: 'tg_type',
+      is_filter: true,
     },
     {
       field: 'chanel',
       header: 'chanel',
+      is_filter: true,
     },
     {
       field: 'token',
       header: 'token',
+      is_filter: true,
     },
     {
       field: 'region.name',
       header: 'region.name',
+      is_filter: false,
     },
     {
       field: 'district.name',
       header: 'district.name',
+      is_filter: false,
     },
   ]
 
@@ -80,3 +87,6 @@ export class TgDetailComponent {
       })
   }
 }
+
+
+

@@ -26,14 +26,17 @@ export class AdminUserComponent {
     {
       field: 'name',
       header: 'name',
+      is_filter: true,
     },
     {
       field: 'email',
       header: 'email',
+      is_filter: true,
     },
     {
       field: 'role.name',
       header: 'role.name',
+      is_filter: false,
     },
   ]
 
@@ -63,3 +66,4 @@ export class AdminUserComponent {
       })
   }
 }
+

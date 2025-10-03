@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { BaseCrudService, GridResponse, GridServiceMaterial } from 'app/shared'
+import { BaseCrudService, GridResponse, GridServiceMaterial, GridRequestParams } from 'app/shared'
 import { Observable } from 'rxjs'
 import { IClientUser, IClientUserStatusDto } from './client-user.model'
 
@@ -24,13 +24,9 @@ export class ClientUserGridService extends GridServiceMaterial<IClientUser> {
     super()
   }
 
-  getAllData(params: {
-    page: number
-    limit: number
-    sort?: string
-    order?: string
-    filters?: string
-  }): Observable<GridResponse<IClientUser>> {
+  getAllData(
+    params: GridRequestParams & { filters?: string }
+  ): Observable<GridResponse<IClientUser>> {
     return this.$api.getAllPagination(params)
   }
 }

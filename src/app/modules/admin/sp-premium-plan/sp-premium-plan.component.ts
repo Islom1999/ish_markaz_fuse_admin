@@ -29,22 +29,27 @@ export class SpPremiumPlanComponent {
     {
       field: 'name_uz',
       header: 'name_uz',
+      is_filter: true,
     },
     {
       field: 'name_kr',
       header: 'name_kr',
+      is_filter: true,
     },
     {
       field: 'name_ru',
       header: 'name_ru',
+      is_filter: true,
     },
     {
       field: 'price',
       header: 'price',
+      is_filter: true,
     },
     {
       field: 'premium_date',
       header: 'premium_date',
+      is_filter: true,
     },
   ]
 

@@ -29,10 +29,12 @@ export class AdminPermissionComponent {
     {
       field: 'key',
       header: 'key',
+      is_filter: true,
     },
     {
       field: 'name',
       header: 'name',
+      is_filter: true,
     },
   ]
 
